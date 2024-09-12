@@ -7,7 +7,7 @@ import { CreateCategoriaDto } from './dto/create-libro.dto';
 export class CategoriaService {
   constructor(@InjectModel(Categoria) private categoriaModel: typeof Categoria) {}
 
-  // Crear una categoría
+
   async create(createCategoriaDto: CreateCategoriaDto): Promise<Categoria> {
     const categoria = await this.categoriaModel.create({
       nombre: createCategoriaDto.nombre,
@@ -15,12 +15,12 @@ export class CategoriaService {
     return categoria;
   }
 
-  // Obtener todas las categorías
+  
   async findAll(): Promise<Categoria[]> {
     return this.categoriaModel.findAll();
   }
 
-  // Eliminar una categoría solo si no tiene libros asociados
+ 
   async delete(id: string): Promise<void> {
     const categoria = await this.categoriaModel.findByPk(id);
     if (!categoria) {
