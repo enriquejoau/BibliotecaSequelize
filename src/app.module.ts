@@ -10,11 +10,11 @@ import { AutorModule } from './autor/autor.module';
       dialect: 'postgres',
       host: 'localhost',
       port: 5432,
-      username: 'postgres', // Cambia esto según tu configuración
-      password: '1234',     // Cambia esto según tu configuración
+      username: 'postgres',
+      password: '1234',
       database: 'biblioteca',
       autoLoadModels: true,
-      synchronize: true,  // No usamos synchronize, usamos migraciones
+      synchronize: true,
     }),
     CategoriaModule,
     LibroModule,
