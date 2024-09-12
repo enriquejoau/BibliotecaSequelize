@@ -23,63 +23,59 @@
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
+Este es un proyecto de una API REST para gestionar autores, libros y categorías utilizando **NestJS**, **Sequelize** y **PostgreSQL**.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Requisitos
 
-## Project setup
+- Node.js
+- PostgreSQL
 
-```bash
-$ npm install
-```
+## Instalación
+1. Clona este repositorio:
 
-## Compile and run the project
+   ```bash
+   git clone https://github.com/enriquejoau/Biblioteca.git
 
-```bash
-# development
-$ npm run start
+2. Instala las dependencias:
 
-# watch mode
-$ npm run start:dev
+   ```bash
+    npm install
+3. Configura la base de datos en src/config/config.json con tus credenciales de PostgreSQL.
+4. Ejecuta las migraciones para crear las tablas en PostgreSQL:
+    ```bash
+      npx sequelize-cli db:migrate
 
-# production mode
-$ npm run start:prod
-```
+## USO
+1. Inicia el servidor:
+   ```bash
+    npm install
+2. La API estará disponible en http://localhost:3000.
 
-## Run tests
+## Endpoints
 
-```bash
-# unit tests
-$ npm run test
+ojo: cuando es :id (ahi se pone el id generado por UUID)
 
-# e2e tests
-$ npm run test:e2e
+-POST /autores: Crear un autor.
 
-# test coverage
-$ npm run test:cov
-```
+-GET /autores: Obtener todos los autores.
 
-## Resources
+-GET /autores/:id: Obtener un autor por ID.
 
-Check out a few resources that may come in handy when working with NestJS:
+-PUT /autores/:id: Actualizar un autor.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+-DELETE /autores/:id: Eliminar un autor.
 
-## Support
+-POST /libros: Crear un libro.
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+-GET /libros: Obtener todos los libros.
 
-## Stay in touch
+-PUT /libros/:id: Actualiza un libro.
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+-DELETE /libros/:id: Eliminar un libro.
 
-## License
+-POST /categorias: Crear un libro.
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+-GET /categorias: Obtener todos los libros.
+
+-DELETE /categorias/:id: Eliminar un libro.
+
