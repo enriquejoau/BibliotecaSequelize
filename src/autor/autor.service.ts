@@ -9,7 +9,6 @@ import { Libro } from '../libro/libro.model';
 export class AutorService {
   constructor(@InjectModel(Autor) private autorModel: typeof Autor) {}
 
-  // Crear un autor
   async create(createAutorDto: CreateAutorDto): Promise<Autor> {
     const autor = await this.autorModel.create({
       nombre: createAutorDto.nombre,
@@ -19,17 +18,17 @@ export class AutorService {
     return autor;
   }
 
-  // Obtener todos los autores con paginación
+
   async findAll(page: number = 1, limit: number = 10): Promise<Autor[]> {
     const offset = (page - 1) * limit;
     return this.autorModel.findAll({
-      include: [Libro], // Incluir los libros asociados
+      include: [Libro], 
       offset,
       limit,
     });
   }
 
-  // Obtener un autor por ID
+
   async findOne(id: string): Promise<Autor> {
     const autor = await this.autorModel.findByPk(id, { include: [Libro] });
     if (!autor) {
@@ -38,16 +37,16 @@ export class AutorService {
     return autor;
   }
 
-  // Actualizar un autor
+
   async update(id: string, updateAutorDto: UpdateAutorDto): Promise<Autor> {
     const autor = await this.findOne(id);
     return autor.update(updateAutorDto);
   }
 
-  // Eliminar un autor solo si no tiene libros asociados
+
   async delete(id: string): Promise<void> {
     const autor = await this.findOne(id);
-    const libros = await autor.$get('libros'); // Obtener libros asociados
+    const libros = await autor.$get('libros'); 
     if (libros.length > 0) {
       throw new BadRequestException('No se puede eliminar el autor porque tiene libros asociados');
     }
